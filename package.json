@@ -1,0 +1,24 @@
+{
+  "name": "gateway",
+  "version": "1.0.0",
+  "description": "Thin API Gateway with Auth+Auth",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iankietzman-voeracity/Gateway.git"
+  },
+  "author": "Ian Kietzman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iankietzman-voeracity/Gateway/issues"
+  },
+  "homepage": "https://github.com/iankietzman-voeracity/Gateway#readme",
+  "dependencies": {
+    "fastify": "^4.28.1",
+    "fastify-cli": "^6.3.0"
+  },
+  "type": "module"
+}
