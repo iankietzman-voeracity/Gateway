@@ -1,0 +1,41 @@
+name: Format, lint, test, build, and deploy
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+# permissions:
+#   contents: read
+#   pages: write
+#   id-token: write
+
+# concurrency:
+#   group: 'pages'
+#   cancel-in-progress: true
+
+jobs:
+  format_lint_test_build_deploy:
+    
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js 20.16
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.16
+        cache: 'npm'
+    - name: Install dev dependencies
+      run: npm ci
+
+    - name: Check formatting with Prettier
+      run: npm run prettier:check
+    
+    - name: Lint with eslint
+      run: npm run lint
+
+    - name: Test with Vitest
+      run: npm run test
